@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        String nomeArquivo = "caso180_5a.txt"; // edita isso aq pra testar os arquivos
+        String nomeArquivo = "caso40_5a.txt"; // edita isso aq pra testar os arquivos
         char[][] matriz = null;
 
         try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
