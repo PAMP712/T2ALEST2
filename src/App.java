@@ -78,14 +78,26 @@ public class App {
             int d = Character.digit(var, 16);
             String hexa = String.format("%4s", Integer.toBinaryString(d))
                             .replace(' ', '0');
-            if(hexa.charAt(0)=='0') 
+            if(hexa.charAt(0)=='0')// cima
+            {
+                if(x>0)
                 verificaCelula(matriz, x-1, y, caminho, check);
-            if(hexa.charAt(1)=='0')
-                verificaCelula(matriz, x, y+1, caminho, check);;
-            if(hexa.charAt(2)=='0')
+            }
+            if(hexa.charAt(1)=='0') // direita
+            {
+                if(y<matriz.length-1)
+                verificaCelula(matriz, x, y+1, caminho, check);
+            }
+            if(hexa.charAt(2)=='0') // baixo
+            {
+                if(x<matriz.length-1)
                 verificaCelula(matriz, x+1, y, caminho, check);
-            if(hexa.charAt(3)=='0')
+            }
+            if(hexa.charAt(3)=='0') // esquerda
+            {
+                if(y>0)
                 verificaCelula(matriz, x, y-1, caminho, check);
+            }
         }
 
     }
