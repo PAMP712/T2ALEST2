@@ -51,20 +51,44 @@ public class App {
     public void start(char [][] matriz){    // Focada nas regioes e no labirnto como um todo
         Set<String> check = new HashSet<>();
         ArrayList<Caminho> caminhos = new ArrayList<>();
+
+        for(int x = 0; x<matriz.length;x++){
+            for(int y = 0; y<matriz.length; y++){
+                if(!check.contains(x + "," + y)){
+                    Caminho c = new Caminho();
+                    caminhos.add(c);
+                }
+            }
+        }
+        System.out.println("Numero de regioes: " + caminhos.size());
+        for(int i =0; i<caminhos.size();i++){
+            System.out.println("Regiao: " + i+1 + " " + caminhos.get(i).contaEntidades());
+        }
     }
-    public void verificaCelula(char[][] matriz, int x, int y, Caminho caminho){ //Focada na célula
+    public void verificaCelula(char[][] matriz, int x, int y, Caminho caminho, Set<String> check){ //Focada na célula
+        if(check.contains(x + "," + y)){ //verificacao para evitar loops
+            return;
+        }
+        else{
+            check.add(x + "," + y); // marca a celula visitada
+            char var = matriz[x][y];
+            if(var=='A'|| var =='B' ||var == 'C' ||var== 'D' || var== 'E' || var== 'F'){//Verifica se e entidade e add ao caminho
+                caminho.adicionaEntidade(var);
+            }
+            int d = Character.digit(var, 16);
+            String hexa = String.format("%4s", Integer.toBinaryString(d))
+                            .replace(' ', '0');
+            if(hexa.charAt(0)=='0') 
+                verificaCelula(matriz, x-1, y, caminho, check);
+            if(hexa.charAt(1)=='0')
+                verificaCelula(matriz, x, y+1, caminho, check);;
+            if(hexa.charAt(2)=='0')
+                verificaCelula(matriz, x+1, y, caminho, check);
+            if(hexa.charAt(3)=='0')
+                verificaCelula(matriz, x, y-1, caminho, check);
+        }
 
     }
-    public void visitaCima(char[][] matriz, int x, int y, Caminho caminho){
-        verificaCelula(matriz, x-1, y, caminho);
-    }
-    public void visitaDireita(char[][] matriz, int x, int y, Caminho caminho){
-        verificaCelula(matriz, x, y+1, caminho);
-    }
-    public void visitaBaixo(char[][] matriz, int x, int y, Caminho caminho){
-        verificaCelula(matriz, x+1, y, caminho);
-    }
-    public void visitaEsquerda(char[][] matriz, int x, int y, Caminho caminho){
-        verificaCelula(matriz, x, y-1, caminho);
-    }
+    
+    
 }
