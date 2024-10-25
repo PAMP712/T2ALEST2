@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        String nomeArquivo = "caso40_5a.txt"; // edita isso aq pra testar os arquivos
+        String nomeArquivo = "caso250_5a.txt"; // edita isso aq pra testar os arquivos
         char[][] matriz = null;
       
 
@@ -29,13 +29,7 @@ public class App {
                 }
                 x1++;
             }
-            System.out.println(x + " " + y);
-            for(int x3 = 0 ; x3<matriz.length; x3++){
-                for(int y3 = 0; y3<matriz.length; y3++ ){
-                    System.out.print(matriz[x3][y3]);
-                }
-                System.out.println();
-            }
+            start(matriz);
         
         } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());
@@ -48,7 +42,7 @@ public class App {
         //System.out.println(s);
         //System.out.println(s.charAt(0));
     }
-    public void start(char [][] matriz){    // Focada nas regioes e no labirnto como um todo
+    public static void start(char [][] matriz){    // Focada nas regioes e no labirnto como um todo
         Set<String> check = new HashSet<>();
         ArrayList<Caminho> caminhos = new ArrayList<>();
 
@@ -57,15 +51,16 @@ public class App {
                 if(!check.contains(x + "," + y)){
                     Caminho c = new Caminho();
                     caminhos.add(c);
+                    verificaCelula(matriz, x, y, c, check);
                 }
             }
         }
         System.out.println("Numero de regioes: " + caminhos.size());
         for(int i =0; i<caminhos.size();i++){
-            System.out.println("Regiao: " + i+1 + " " + caminhos.get(i).contaEntidades());
+            System.out.println("Regiao: " + i + " " + caminhos.get(i).contaEntidades());
         }
     }
-    public void verificaCelula(char[][] matriz, int x, int y, Caminho caminho, Set<String> check){ //Focada na célula
+    public static void verificaCelula(char[][] matriz, int x, int y, Caminho caminho, Set<String> check){ //Focada na célula
         if(check.contains(x + "," + y)){ //verificacao para evitar loops
             return;
         }
