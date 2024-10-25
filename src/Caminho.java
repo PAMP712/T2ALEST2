@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-public class caminhov1 {
+public class Caminho {
     private int id;
     private ArrayList<Character> entidades;
 
-    public caminhov1(int id){
-        entidades = new ArrayList();
+    public Caminho(int id){
+        entidades = new ArrayList<>();
         this.id = id;
     }
     public void adicionaEntidade(char e){
