@@ -49,10 +49,10 @@ public class App {
                 }
             }
         }
-        System.out.println("Numero de regioes: " + caminhos.size());
         for(int i =0; i<caminhos.size();i++){
-            System.out.println("Regiao: " + i + " " + caminhos.get(i).contaEntidades());
+            System.out.println("Regiao: " + (i+1) + " " + caminhos.get(i).contaEntidades());
         }
+        System.out.println("Numero de regioes: " + caminhos.size());  
     }
     public static void verificaCelula(char[][] matriz, int x, int y, Caminho caminho, Set<String> check){ //Focada na célula
         if(check.contains(x + "," + y)){ //verificacao para evitar loops
