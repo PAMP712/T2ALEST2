@@ -19,6 +19,9 @@ public class App {
             int x1 = 0;
             
             while ((linha2 = br.readLine()) != null) { // insere os elementos nas matrizes evitei usar outro for para isso 
+                if (linha2.trim().isEmpty()) {
+                    continue;
+                }
                 int y1=0;
                 for (int y2 = 0; y2 < y*2; y2= y2 + 2) {
                     matriz[x1][y1] = linha2.charAt(y2);
