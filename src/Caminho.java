@@ -6,20 +6,17 @@ public class Caminho {
     public Caminho(){
         entidades = new ArrayList<>();
     }
-    public void adicionaEntidade(char e){
+    public void adicionaEntidade(char e){ // adiciona as entidades que aparecem no caminho
         entidades.add(e);
     }
-
-
     public ArrayList<Character> getEntidades() {
         return this.entidades;
     }
-
     public void setEntidades(ArrayList<Character> entidades) {
         this.entidades = entidades;
     }
     
-    public String contaEntidades(){
+    public String contaEntidades(){ // retorna uma String com todas as entidades do caminho 
         int a = 0;
         int b = 0;
         int c = 0;
