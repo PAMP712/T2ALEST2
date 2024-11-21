@@ -7,8 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class App {
-    public static void main(String[] args) throws IOException {// le os arquivos e coloca os dados em uma matriz
-        String nomeArquivo = "caso250_5a.txt"; 
+    public App(){};
+    public void start(String s){// le os arquivos e coloca os dados em uma matriz
+        String nomeArquivo = s; 
         char[][] matriz = null;
         try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
             String[] linha = br.readLine().split(" "); // le somente a primeira linha para pegar o tamanho da matriz
@@ -36,7 +37,7 @@ public class App {
         } 
     }
 
-    public static void start(char [][] matriz){    // Focada nas regioes e no labirinto como um todo
+    public void start(char [][] matriz){    // Focada nas regioes e no labirinto como um todo
         Set<String> check = new HashSet<>();
         ArrayList<Caminho> caminhos = new ArrayList<>(); // cria um array de todos os caminhos do labirinto 
 
@@ -49,12 +50,12 @@ public class App {
                 }
             }
         }
-        System.out.println("Numero de regioes: " + caminhos.size());
         for(int i =0; i<caminhos.size();i++){
-            System.out.println("Regiao: " + i + " " + caminhos.get(i).contaEntidades());
+            System.out.println("Regiao: " + (i+1) + " " + caminhos.get(i).contaEntidades());
         }
+        System.out.println("Numero de regioes: " + caminhos.size());  
     }
-    public static void verificaCelula(char[][] matriz, int x, int y, Caminho caminho, Set<String> check){ //Focada na célula
+    public void verificaCelula(char[][] matriz, int x, int y, Caminho caminho, Set<String> check){ //Focada na célula
         if(check.contains(x + "," + y)){ //verificacao para evitar loops
             return;
         }
