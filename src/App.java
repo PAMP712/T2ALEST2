@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -66,8 +65,7 @@ public class App {
                 caminho.adicionaEntidade(var); // Adiciona a entidade ao Array do objeto caminho que esta sendo percorrido
             }
             int d = Character.digit(var, 16);
-            String hexa = String.format("%4s", Integer.toBinaryString(d)) // converte o char para uma string Hexadecimal
-                            .replace(' ', '0');
+            String hexa = String.format("%4s", Integer.toBinaryString(d)).replace(' ', '0'); // converte o char para uma string Hexadecimal
             if(hexa.charAt(0)=='0')// cima
             {
                 if(x>0)
