@@ -76,11 +76,11 @@ public class App {
             }
         }
 
-        System.out.println("Quantidade de regiões: " + caminhos.size());
+        //System.out.println("Quantidade de regiões: " + caminhos.size());
         if (totalEntidade > 0) {
-            System.out.println("Entidade mais frequente: " + entidadeFrequente + "; Frequência: " + totalEntidade);
+           // System.out.println("Entidade mais frequente: " + entidadeFrequente + "; Frequência: " + totalEntidade);
         } else {
-            System.out.println("Nenhuma entidade na região.");
+           // System.out.println("Nenhuma entidade na região.");
         }
     }
 
