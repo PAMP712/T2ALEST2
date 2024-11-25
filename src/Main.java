@@ -20,6 +20,6 @@ public class Main {
         // Calculando e exibindo o tempo de execução
         long durationInNano = endTime - startTime;
         double durationInMillis = durationInNano / 1_000_000.0; // Convertendo para milissegundos
-        System.out.println("Tempo para " + arquivo + ": " + durationInMillis + " ms");
+        System.out.printf("Tempo: %.2f ms%n", durationInMillis);
     }
 }
