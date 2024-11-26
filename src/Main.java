@@ -13,13 +13,12 @@ public class Main {
     }
 
     private static void medirTempo(App app, String arquivo) {
-        long startTime = System.nanoTime(); // Início da medição
-        app.start(arquivo);                 // Chamada do método
-        long endTime = System.nanoTime();   // Fim da medição
+        long startTime = System.nanoTime();
+        app.start(arquivo);
+        long endTime = System.nanoTime();
         
-        // Calculando e exibindo o tempo de execução
-        long durationInNano = endTime - startTime;
-        double durationInMillis = durationInNano / 1_000_000.0; // Convertendo para milissegundos
-        System.out.printf("Tempo: %.2f ms%n", durationInMillis);
+        long duracaoNS = endTime - startTime;
+        double duracaoMS = duracaoNS / 1000000;
+        System.out.printf("Tempo: %.2f ms%n", duracaoMS);
     }
 }
